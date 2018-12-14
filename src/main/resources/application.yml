@@ -1,0 +1,30 @@
+spring:
+  profiles:
+    active: local
+
+---
+
+spring:
+  profiles: local
+  application:
+    name: SSE Demo App
+
+server:
+  http2:
+    enabled: true
+  port: 5002
+  
+# Actuator endpoint management
+management:
+  trace:
+    http:
+      enabled: false
+  endpoints:
+    web:
+      base-path: /manage
+      exposure:
+        include: shutdown,loggers,health,info,metrics
+  endpoint:
+    shutdown:
+      enabled: true
+      
